@@ -32,6 +32,11 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
 
+  -- diffview
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- nvim web devicons
+  use 'kyazdani42/nvim-web-devicons'
+
   if is_bootstrap then
     require('packer').sync()
   end
@@ -308,7 +313,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require('mason').setup()
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'terraformls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
