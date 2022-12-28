@@ -10,12 +10,6 @@ end
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
---  use {
---    'nvim-tree/nvim-tree.lua',
---    requires = {
---      'nvim-tree/nvim-web-devicons', -- optional, for file icons
---    },
---  }
 
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
@@ -164,28 +158,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- NVim tree
---vim.g.loaded_netrw = 1
---vim.g.loaded_netrwPlugin = 1
---vim.opt.termguicolors = true
---
---require("nvim-tree").setup({
---  sort_by = "case_sensitive",
---  view = {
---    adaptive_size = true,
---    mappings = {
---      list = {
---        { key = "u", action = "dir_up" },
---      },
---    },
---  },
---  renderer = {
---    group_empty = true,
---  },
---  filters = {
---    dotfiles = true,
---  },
---})
 
 require('dap-python').setup('~/pythonprojects/debugpy/bin/python')
 
