@@ -6,7 +6,7 @@ vim.cmd [[
   augroup END
 ]]
 
-vim.cmd('source neovide.vim')
+vim.cmd('source ~/.config/nvim/after/plugin/neovide.vim')
 
 vim.o.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.o.expandtab = true
@@ -52,7 +52,11 @@ keymap("n", "<S-n>", ":resize +2<CR>", opts)
 keymap("n", "<S-v>", ":vertical resize +2<CR>", opts)
 keymap("n", "<S-m>", ":vertical resize -2<CR>", opts)
 
-
+-- Tree sitter
+require('nvim-treesitter.configs').setup {
+  -- Add languages to be installed here that you want installed for treesitter
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'hcl', 'vim', 'java' },
+}
 -- LSP Settings
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
