@@ -6,6 +6,7 @@ vim.cmd [[
   augroup END
 ]]
 
+vim.cmd('source neovide.vim')
 
 vim.o.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.o.expandtab = true
