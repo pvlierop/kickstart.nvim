@@ -9,7 +9,4 @@ return function(use)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   -- nvim web devicons
   use 'kyazdani42/nvim-web-devicons'
-
-
-
 end

@@ -31,7 +31,7 @@ local keymap = vim.api.nvim_set_keymap
 local term_opts = { silent = true }
 
 -- Terminal --
-keymap("t", "<C-Esc>", "<C-\\><C-n>", term_opts)
+keymap("t", "<C-e>", "<C-\\><C-n>", term_opts)
 
 keymap('n', '<leader>f', ':Lex 30<cr>', opts)
 
@@ -55,12 +55,12 @@ keymap("n", "<S-m>", ":vertical resize -2<CR>", opts)
 -- Tree sitter
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'hcl', 'vim', 'java' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'hcl', 'vim', 'java','terraform' },
 }
 -- LSP Settings
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'jdtls' }
+local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'tflint', 'jdtls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -70,6 +70,7 @@ require('mason-lspconfig').setup {
 
 -- Telscope keymap
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').git_status, { desc = '[S]earch Git [S]tatus' })
+vim.keymap.set('n', 'gf', vim.lsp.buf.format, { desc = '[G]o [F]ormat'})
 
 -- Lualine 
 
@@ -79,7 +80,7 @@ require('lualine').setup {
     theme = 'onedark',
     component_separators = '|',
     section_separators = '',
-    globalstatus=true
+--    globalstatus=true
   },
 }
 
