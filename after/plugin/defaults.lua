@@ -8,19 +8,19 @@ vim.cmd [[
 
 vim.cmd('source ~/.config/nvim/after/plugin/neovide.vim')
 
-vim.o.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+vim.o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
-vim.o.laststatus =3
+vim.o.laststatus = 3
 
-vim.o.splitbelow = true                        -- force all horizontal splits to go below current window
-vim.o.splitright = true                        -- force all vertical splits to go to the right of current window
+vim.o.splitbelow = true -- force all horizontal splits to go below current window
+vim.o.splitright = true -- force all vertical splits to go to the right of current window
 vim.o.cursorline = true
-vim.o.relativenumber = true                  -- set relative numbered lines
+vim.o.relativenumber = true -- set relative numbered lines
 vim.o.spell = false
-vim.o.spelllang="nl,en_us"
+vim.o.spelllang = "nl,en_us"
 vim.o.title = true
 
 vim.g['netrw_keepdir'] = 1
@@ -72,7 +72,7 @@ require('mason-lspconfig').setup {
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').git_status, { desc = '[S]earch Git [S]tatus' })
 vim.keymap.set('n', 'gf', vim.lsp.buf.format, { desc = '[G]o [F]ormat'})
 
--- Lualine 
+-- Lualine
 
 require('lualine').setup {
   options = {
@@ -145,7 +145,7 @@ require("dapui").setup({
   layouts = {
     {
       elements = {
-      -- Elements can be strings or table with id and size keys.
+        -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "breakpoints",
         "stacks",
@@ -196,14 +196,13 @@ require("dapui").setup({
 
 -- debugging keymaps
 
-vim.keymap.set('n', '<F5>', ':lua require("dap").continue()<CR>', { desc = 'Continue'})
-vim.keymap.set('n', '<F6>', ':lua require("dap").step_over()<CR>', { desc = 'Step Over'})
-vim.keymap.set('n', '<F7>', ':lua require("dap").step_into()<CR>', { desc = 'Step Into'})
-vim.keymap.set('n', '<F8>', ':lua require("dap").step_out()()<CR>', { desc = 'Step Out'})
-vim.keymap.set('n', '<leader>b', ':lua require("dap").toggle_breakpoint()<CR>', { desc = 'Toggle breakpoint'})
-vim.keymap.set('n', '<leader>B', ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', { desc = 'Breakpoint Condition'})
-vim.keymap.set('n', '<leader>n', ':lua require("dapui").toggle()<CR>', { desc = 'Toggle Debug UI'})
-
-
+vim.keymap.set('n', '<F5>', ':lua require("dap").continue()<CR>', { desc = 'Continue' })
+vim.keymap.set('n', '<F6>', ':lua require("dap").step_over()<CR>', { desc = 'Step Over' })
+vim.keymap.set('n', '<F7>', ':lua require("dap").step_into()<CR>', { desc = 'Step Into' })
+vim.keymap.set('n', '<F8>', ':lua require("dap").step_out()()<CR>', { desc = 'Step Out' })
+vim.keymap.set('n', '<leader>b', ':lua require("dap").toggle_breakpoint()<CR>', { desc = 'Toggle breakpoint' })
+vim.keymap.set('n', '<leader>B', ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+  { desc = 'Breakpoint Condition' })
+vim.keymap.set('n', '<leader>n', ':lua require("dapui").toggle()<CR>', { desc = 'Toggle Debug UI' })
 
 --- End Additions of my own
