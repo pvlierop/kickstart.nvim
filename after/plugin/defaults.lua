@@ -70,7 +70,7 @@ require('mason-lspconfig').setup {
 
 -- Telscope keymap
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').git_status, { desc = '[S]earch Git [S]tatus' })
-vim.keymap.set('n', 'gf', vim.lsp.buf.format, { desc = '[G]o [F]ormat'})
+vim.keymap.set('n', 'gf', vim.lsp.buf.format, { desc = '[G]o [F]ormat' })
 
 -- Lualine
 
