@@ -60,7 +60,7 @@ require('nvim-treesitter.configs').setup {
 -- LSP Settings
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'tflint', 'jdtls' }
+local servers = { 'pylsp', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'tflint', 'jdtls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
