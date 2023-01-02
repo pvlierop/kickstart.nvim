@@ -55,7 +55,7 @@ keymap("n", "<S-m>", ":vertical resize -2<CR>", opts)
 -- Tree sitter
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'hcl', 'vim', 'java','terraform' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'hcl', 'vim', 'java', 'terraform' },
 }
 -- LSP Settings
 -- Enable the following language servers
