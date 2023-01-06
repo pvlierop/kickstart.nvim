@@ -33,24 +33,25 @@ local term_opts = { silent = true }
 -- Terminal --
 keymap("t", "<C-e>", "<C-\\><C-n>", term_opts)
 
+-- Show explorer
 keymap('n', '<leader>f', ':Lex 30<cr>', opts)
 
--- Resize with arrows
--- keymap("n", "<C-j>", ":resize -2<CR>", opts)
--- keymap("n", "<C-k>", ":resize +2<CR>", opts)
--- keymap("n", "<C-l>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)
+-- Normal-mode commands
+keymap('n', '<C-S-j>', ':m .+1<CR>==', opts)
+keymap('n', '<C-S-k>', ':m .-2<CR>==', opts)
 
--- nnoremap <silent> <C-Up> :resize +3<CR>
--- nnoremap <silent> <C-Down> :resize -3<CR>
--- nnoremap <silent> <C-Left> :vertical resize +2<CR>
--- nnoremap <silent> <C-Right> :vertical resize -2<CR>
---
+-- Insert-mode commands
+keymap('i', '<C-S-j>', '<Esc>:m .+1<CR>==gi', opts)
+keymap('i', '<C-S-k>', '<Esc>:m .-2<CR>==gi', opts)
 
-keymap("n", "<S-b>", ":resize -2<CR>", opts)
-keymap("n", "<S-n>", ":resize +2<CR>", opts)
-keymap("n", "<S-v>", ":vertical resize +2<CR>", opts)
-keymap("n", "<S-m>", ":vertical resize -2<CR>", opts)
+-- Visual-mode commands
+keymap('v', '<C-S-j>', ":m '>+1<CR>gv=gv", opts)
+keymap('v', '<C-S-k>', ":m '<-2<CR>gv=gv", opts)
+
+-- keymap("n", "<S-b>", ":resize -2<CR>", opts)
+-- keymap("n", "<S-n>", ":resize +2<CR>", opts)
+-- keymap("n", "<S-v>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<S-m>", ":vertical resize -2<CR>", opts)
 
 -- Tree sitter
 require('nvim-treesitter.configs').setup {
@@ -60,7 +61,7 @@ require('nvim-treesitter.configs').setup {
 -- LSP Settings
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'pylsp', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'tflint', 'jdtls' }
+local servers = { 'pylsp', 'tsserver', 'sumneko_lua', 'gopls', 'terraformls', 'jdtls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -74,10 +75,12 @@ vim.keymap.set('n', 'gf', vim.lsp.buf.format, { desc = '[G]o [F]ormat' })
 
 -- Lualine
 
+vim.cmd [[colorscheme nordfox]]
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'nordfox',
     component_separators = '|',
     section_separators = '',
     --    globalstatus=true
@@ -85,6 +88,7 @@ require('lualine').setup {
 }
 
 -- Debugging setup
+
 require('dap-python').setup('~/pythonprojects/debugpy/bin/python')
 
 require('dap-go').setup {
