@@ -7,8 +7,17 @@ if exists("g:neovide")
 	tmap <D-v> <C-R>+
 	vmap <D-c> "+y<CR>
 
-	let g:neovide_scale_factor = 1.2
+	let g:neovide_scale_factor=1.0
+	function! ChangeScaleFactor(delta)
+			let g:neovide_scale_factor = g:neovide_scale_factor * a:delta
+	endfunction
+	function! DefaultScaleFactor()
+		let g:neovide_scale_factor=1.0
+	endfunction
 
+	nnoremap <expr><C-=> ChangeScaleFactor(1.10)
+	nnoremap <expr><C--> ChangeScaleFactor(1/1.10)
+	nnoremap <expr><C-0> DefaultScaleFactor() 
 	let g:neovide_transparency=1.0
 
 
