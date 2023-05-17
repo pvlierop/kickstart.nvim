@@ -412,7 +412,11 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-
+  pylsp = {},
+  tsserver = {},
+  gopls = {},
+  terraformls = {},
+  jdtls = {}, 
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
