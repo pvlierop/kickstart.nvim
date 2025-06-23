@@ -2,17 +2,14 @@
 
 vim.cmd 'source ~/.config/nvim/after/plugin/neovide.vim'
 
-vim.o.clipboard = 'unnamedplus' -- allows neovim to access the system clipboard
-vim.o.expandtab = true
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
+--vim.o.expandtab = true
+--vim.o.tabstop = 2
+--vim.o.shiftwidth = 2
 
+-- Status bar at the bottm showing the current status
 vim.o.laststatus = 3
 
-vim.o.splitbelow = true     -- force all horizontal splits to go below current window
-vim.o.splitright = true     -- force all vertical splits to go to the right of current window
-vim.o.cursorline = true
-vim.o.relativenumber = true -- set relative numbered lines
+--vim.o.relativenumber = true -- set relative numbered lines
 vim.o.spell = false
 vim.o.spelllang = 'nl,en_us'
 vim.o.title = true
