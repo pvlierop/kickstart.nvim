@@ -26,12 +26,11 @@ local keymap = vim.api.nvim_set_keymap
 local term_opts = { silent = true }
 
 -- Terminal --
-keymap('t', '<Esc>', '<C-\\><C-n>', term_opts)
 
 vim.cmd [[ autocmd BufWinEnter,WinEnter term://* startinsert ]]
 vim.cmd [[ autocmd TermOpen * startinsert ]]
 
-keymap('n', '<leader>t', ':20 split | termi<cr>', opts)
+--keymap('n', '<leader>t', ':20 split | termi<cr>', opts)
 
 -- Show explorer
 --keymap('n', '<leader>f', ':Lex 30<cr>', opts)
