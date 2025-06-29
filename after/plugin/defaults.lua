@@ -27,6 +27,15 @@ local term_opts = { silent = true }
 vim.cmd [[ autocmd BufWinEnter,WinEnter term://* startinsert ]]
 vim.cmd [[ autocmd TermOpen * startinsert ]]
 
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new { cmd = 'lazygit', direction = 'float', displayname = 'LazyGit', hidden = true }
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+
 --keymap('n', '<leader>t', ':20 split | termi<cr>', opts)
 
 -- Show explorer
